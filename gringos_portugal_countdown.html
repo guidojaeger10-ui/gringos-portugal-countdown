@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gringos fliegen nach Portugal 🇵🇹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #87ceeb, #ffffff);
+      color: #333;
+      text-align: center;
+    }
+    header {
+      padding: 2rem 1rem 1rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .time-box {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      min-width: 90px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .time-box span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .time-box label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #777;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 1rem 2rem 2rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .music {
+      margin: 2rem 0 3rem;
+    }
+    footer {
+      font-size: 0.8rem;
+      color: #666;
+      padding-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✈️ Countdown: Gringos nach Portugal</h1>
+    <p>Abflug am <strong>03.01.2026</strong> 🌊🍷</p>
+  </header>
+
+  <section class="countdown" id="countdown">
+    <div class="time-box"><span id="days">0</span><label>Tage</label></div>
+    <div class="time-box"><span id="hours">0</span><label>Stunden</label></div>
+    <div class="time-box"><span id="minutes">0</span><label>Minuten</label></div>
+    <div class="time-box"><span id="seconds">0</span><label>Sekunden</label></div>
+  </section>
+
+  <section class="gallery">
+    <!-- Bilder hier einfügen (Dateien im gleichen Ordner ablegen) -->
+    <img src="data:image/png;base64," alt="Villa mit Pool" />
+    <img src="data:image/png;base64," alt="Wohnzimmer" />
+    <img src="data:image/png;base64," alt="Pool Area" />
+    <img src="data:image/png;base64," alt="Schlafzimmer" />
+    <img src="data:image/png;base64," alt="Die Gringos" />
+  </section>
+
+  <section class="music">
+    <h2>🎶 Chillige Vibes</h2>
+    <iframe
+      width="360"
+      height="203"
+      src="https://www.youtube.com/embed/WcIcVapfqXw?rel=0"
+      title="YouTube music player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+    <p style="font-size:0.85rem; color:#666; margin-top:0.5rem;">▶️ Play drücken & Portugal-Feeling starten 🇵🇹</p>
+  </section>
+
+  <footer>
+    Mit ❤️ für die Gringos · Share den Link mit der Crew
+  </footer>
+
+  <script>
+    const targetDate = new Date('2026-01-03T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) return;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
